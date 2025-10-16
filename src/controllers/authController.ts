@@ -2,8 +2,9 @@ import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import { User } from "../models/user";
 import { generatedToken } from "../config/jwt";
+import {Iuser} from "../types/userType"
 
-export const register = async (req: Request, res: Response): Promise<void> => {
+export const register = async (req: Request<{}, {}, Iuser>, res: Response): Promise<void> => {
     try {
         const { name, email, password } = req.body;
 
