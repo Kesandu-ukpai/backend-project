@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import { User } from "../models/user";
 import { generatedToken } from "../config/jwt";
 
-export const register = async (req: Request, res: Response) => {
+export const register = async (req: Request, res: Response): Promise<void> => {
     try {
         const { name, email, password } = req.body;
 

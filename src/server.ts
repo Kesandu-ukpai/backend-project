@@ -3,14 +3,15 @@ dotenv.config({ path: "./.env" });
 import express from 'express'
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import { TokenPayload } from "./types/user.id";
 import { connectDB } from "./config/database";
 import authRoutes from "./routes/authRoutes";
 import { requireAuth } from "./middleware/authMiddleware";
-
+import {Request, Response} from 'express'
 const app = express();
 
 // Middleware
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
@@ -18,11 +19,11 @@ app.use(cookieParser());
 connectDB();
 
 // Routes
-app.use("/api/auth", authRoutes);
+app.use("/auth", authRoutes);
 
 
-app.get("/api/profile", requireAuth, (req, res) => {
-    // The user payload from the JWT is available on req.user
+app.get("/profile", requireAuth, (req:Request, res:Response) => {
+    
     if (req.user) {
         res.json({ message: `Welcome user ${req.user.id}` });
     }
