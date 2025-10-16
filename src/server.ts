@@ -3,7 +3,6 @@ dotenv.config({ path: "./.env" });
 import express from 'express'
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import { TokenPayload } from "./types/user.id";
 import { connectDB } from "./config/database";
 import authRoutes from "./routes/authRoutes";
 import { requireAuth } from "./middleware/authMiddleware";
