@@ -16,7 +16,7 @@ export const createTrans = async (req: Request<{}, {}, Itransaction>, res: Respo
     }
 }
 
-export const findAlltransact = async(req: Request , res: Response) => {
+export const findAlltransaction = async(req: Request , res: Response) => {
     try{
         const transactions = Transaction.find();
         res.json(transactions);
