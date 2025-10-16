@@ -22,7 +22,7 @@ connectDB();
 app.use("/auth", authRoutes);
 
 
-app.get("/profile", requireAuth, (req:Request, res:Response) => {
+app.get("/profile", requireAuth, (req:any, res:any) => {
     
     if (req.user) {
         res.json({ message: `Welcome user ${req.user.id}` });
