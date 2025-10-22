@@ -1,12 +1,11 @@
 import { Document } from "mongoose";
 
-
-export interface Iuser extends Document {
-    name: string,
-    email: string,
-    password: string,
-    role: "buyer" | "seller" | "admin",
-    walletBalance: number;
-    createdAt: Date;
-    updatedAt: Date;
+export interface IUser extends Document {
+  name: string;
+  email: string;
+  password: string;
+  role: "buyer" | "seller" | "admin";
+  walletBalance: number;
+  createdAt: Date;
+  updatedAt: Date;
 }
